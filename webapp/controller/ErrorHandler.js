@@ -14,6 +14,7 @@ sap.ui.define([
 		 * @alias ZZ1.ZZSOCIAL_MEDIA_EX.controller.ErrorHandler
 		 */
 		constructor: function (oComponent) {
+
 			this._oResourceBundle = oComponent.getModel("i18n").getResourceBundle();
 			this._oComponent = oComponent;
 			this._oModel = oComponent.getModel();
