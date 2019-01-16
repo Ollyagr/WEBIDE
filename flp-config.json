@@ -1,0 +1,35 @@
+{
+    "application": {
+        "id": "",
+        "title": "ZZ1.ZZSOCIAL_MEDIA_EX.ZZSOCIAL_MEDIA_EX",
+        "description": "Sozial Media",
+        "type": "SAP_UI5_Component",
+        "componentUrl": "/",
+        "appUrl": "#ZZSOCIAL_MEDIA_EX-Display",
+        "navigationComponentName": "ZZ1.ZZSOCIAL_MEDIA_EX",
+        "intentSemanticObject": "ZZSOCIAL_MEDIA_EX",
+        "intentAction": "Display",
+        "html5ApplicationName": "zzsocialmediaex",
+        "HCPParentApplicationName": ""
+    },
+    "assignment": {
+        "groups": [
+            "a9eb0764-a55b-4ae7-b243-6c0ccd272ae7"
+        ],
+        "contentPackages": [
+            "bd157902-6e3d-4d40-820c-ec76fee8a728"
+        ],
+        "categories": []
+    },
+    "tile": {
+        "type": "StaticTile",
+        "title": "Title",
+        "subtitle": "Subtitle",
+        "searchKeywords": "Title,Subtitle",
+        "displayIconUrl": "sap-icon://approvals",
+        "displayInfoText": "",
+        "size": "1x1",
+        "serviceURL": "",
+        "refreshInterval": ""
+    }
+}

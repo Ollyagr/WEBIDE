@@ -1,0 +1,47 @@
+<mvc:View controllerName="ZZ1.ZZSOCIAL_MEDIA_EX.controller.CreateEntity" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form"
+	xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic"
+	xmlns:smart="sap.ui.comp.smartfield" xmlns="sap.m">
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" title="{viewModel>/viewTitle}" busy="{viewModel>/busy}">
+		<semantic:content>
+			<f:SimpleForm class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" id="newEntitySimpleForm"
+				labelSpanL="3" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="2" minWidth="1024"
+				title="{= ${viewModel>/mode} === 'edit'? 'Edit ZZ1_BPSOCIAL_ACC_CDS.ZZ1_BPSOCIAL_ACCType': 'New ZZ1_BPSOCIAL_ACC_CDS.ZZ1_BPSOCIAL_ACCType'}">
+				<f:content>
+					<Label text="Beschreibung" required="false"/>
+					<Input name="SAP_Description" id="SAP_Description_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true"
+						visible="true" value="{ path: 'SAP_Description', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:80 } }"/>
+					<Label text="Angelegt am" required="false"/>
+					<Input name="SAP_CreatedDateTime" id="SAP_CreatedDateTime_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="false"
+						visible="true" value="{ path: 'SAP_CreatedDateTime', type: 'sap.ui.model.odata.type.String' }"/>
+					<Label text="Angelegt von" required="false"/>
+					<Input name="SAP_CreatedByUser" id="SAP_CreatedByUser_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="false"
+						visible="true" value="{ path: 'SAP_CreatedByUser', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:12 } }"/>
+					<Label text="Beschreibung" required="false"/>
+					<Input name="SAP_CreatedByUser_Text" id="SAP_CreatedByUser_Text_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement"
+						enabled="false" visible="true"
+						value="{ path: 'SAP_CreatedByUser_Text', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:80 } }"/>
+					<Label text="Zuletzt geändert am" required="false"/>
+					<Input name="SAP_LastChangedDateTime" id="SAP_LastChangedDateTime_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement"
+						enabled="false" visible="true" value="{ path: 'SAP_LastChangedDateTime', type: 'sap.ui.model.odata.type.String' }"/>
+					<Label text="Zuletzt geändert von" required="false"/>
+					<Input name="SAP_LastChangedByUser" id="SAP_LastChangedByUser_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement"
+						enabled="false" visible="true"
+						value="{ path: 'SAP_LastChangedByUser', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:12 } }"/>
+					<Label text="Beschreibung" required="false"/>
+					<Input name="SAP_LastChangedByUser_Text" id="SAP_LastChangedByUser_Text_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement"
+						enabled="false" visible="true"
+						value="{ path: 'SAP_LastChangedByUser_Text', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:80 } }"/>
+					<Label text="Partner ID" required="false"/>
+					<Input name="PartnerID" id="PartnerID_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'PartnerID', type: 'sap.ui.model.odata.type.String' , constraints:{ maxLength:10 } }"/>
+				</f:content>
+			</f:SimpleForm>
+		</semantic:content>
+		<semantic:saveAction>
+			<semantic:SaveAction id="save" enabled="{viewModel>/enableCreate}" press="onSave"/>
+		</semantic:saveAction>
+		<semantic:cancelAction>
+			<semantic:CancelAction id="cancel" press="onCancel"></semantic:CancelAction>
+		</semantic:cancelAction>
+	</semantic:DetailPage>
+</mvc:View>

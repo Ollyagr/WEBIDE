@@ -1,0 +1,52 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZZ1_BPSOCIAL_ACC_CDS" xml:lang="de" sap:schema-version="1">
+			<EntityType Name="P_Scbo_UserType" sap:label="wrapper view for usr21" sap:content-version="1">
+				<Key><PropertyRef Name="name"/></Key><Property Name="name" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:label="Benutzer"
+					sap:quickinfo="Benutzername im Benutzerstamm"/><Property Name="description" Type="Edm.String" MaxLength="80" sap:label="Beschreibung"
+					sap:quickinfo="Beschreibung des technischen Benutzerkontos"/></EntityType>
+			<EntityType Name="ZZ1_BPSOCIAL_ACCType" sap:label="Partner Socialmedia Account" sap:content-version="1">
+				<Key><PropertyRef Name="SAP_UUID"/></Key><Property Name="SAP_UUID" Type="Edm.Guid" Nullable="false" sap:label="UUID" sap:quickinfo="16 byte UUID in 16 bytes (raw format)"/><Property Name="SAP_Description" Type="Edm.String" MaxLength="80" sap:label="Beschreibung"/><Property Name="SAP_CreatedDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Angelegt am" sap:creatable="false"
+					sap:updatable="false"/><Property Name="SAP_CreatedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:text="SAP_CreatedByUser_Text"
+					sap:label="Angelegt von" sap:creatable="false" sap:updatable="false"/><Property Name="SAP_CreatedByUser_Text" Type="Edm.String" MaxLength="80" sap:label="Beschreibung"
+					sap:quickinfo="Beschreibung des technischen Benutzerkontos" sap:creatable="false" sap:updatable="false"/><Property Name="SAP_LastChangedDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Zuletzt geändert am" sap:creatable="false"
+					sap:updatable="false"/><Property Name="SAP_LastChangedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:text="SAP_LastChangedByUser_Text"
+					sap:label="Zuletzt geändert von" sap:creatable="false" sap:updatable="false"/><Property Name="SAP_LastChangedByUser_Text" Type="Edm.String" MaxLength="80" sap:label="Beschreibung"
+					sap:quickinfo="Beschreibung des technischen Benutzerkontos" sap:creatable="false" sap:updatable="false"/><Property Name="PartnerID" Type="Edm.String" MaxLength="10" sap:label="Partner ID"/><NavigationProperty Name="to_MediaAccount" Relationship="ZZ1_BPSOCIAL_ACC_CDS.assoc_185C6F67FD62A298BBA8628F7035B98D"
+					FromRole="FromRole_assoc_185C6F67FD62A298BBA8628F7035B98D" ToRole="ToRole_assoc_185C6F67FD62A298BBA8628F7035B98D"/><NavigationProperty Name="to_SAPSysAdminDataChangeUser" Relationship="ZZ1_BPSOCIAL_ACC_CDS.assoc_B033D1C74A0DB28B87D98405F6FB4CB1"
+					FromRole="FromRole_assoc_B033D1C74A0DB28B87D98405F6FB4CB1" ToRole="ToRole_assoc_B033D1C74A0DB28B87D98405F6FB4CB1"/><NavigationProperty Name="to_SAPSysAdminDataCreateUser" Relationship="ZZ1_BPSOCIAL_ACC_CDS.assoc_EDD8257949FC359228319693121DE954"
+					FromRole="FromRole_assoc_EDD8257949FC359228319693121DE954" ToRole="ToRole_assoc_EDD8257949FC359228319693121DE954"/></EntityType>
+			<EntityType Name="ZZ1_MEDIAACCOUNT_BPSOCIAL_ACCType" sap:label="Media Account" sap:content-version="1">
+				<Key><PropertyRef Name="SAP_UUID"/></Key><Property Name="SAP_UUID" Type="Edm.Guid" Nullable="false" sap:label="UUID" sap:quickinfo="16 byte UUID in 16 bytes (raw format)"/><Property Name="SAP_PARENT_UUID" Type="Edm.Guid" sap:label="UUID" sap:quickinfo="16 byte UUID in 16 bytes (raw format)"/><Property Name="Service" Type="Edm.String" MaxLength="10" sap:label="Service"/><Property Name="Account" Type="Edm.String" MaxLength="60" sap:label="Account"/><NavigationProperty Name="to_BPSOCIAL_ACC" Relationship="ZZ1_BPSOCIAL_ACC_CDS.assoc_185C6F67FD62A298BBA8628F7035B98D"
+					FromRole="ToRole_assoc_185C6F67FD62A298BBA8628F7035B98D" ToRole="FromRole_assoc_185C6F67FD62A298BBA8628F7035B98D"/></EntityType>
+			<Association Name="assoc_B033D1C74A0DB28B87D98405F6FB4CB1" sap:content-version="1"><End Type="ZZ1_BPSOCIAL_ACC_CDS.ZZ1_BPSOCIAL_ACCType" Multiplicity="1" Role="FromRole_assoc_B033D1C74A0DB28B87D98405F6FB4CB1"/><End Type="ZZ1_BPSOCIAL_ACC_CDS.P_Scbo_UserType" Multiplicity="0..1" Role="ToRole_assoc_B033D1C74A0DB28B87D98405F6FB4CB1"/></Association>
+			<Association Name="assoc_EDD8257949FC359228319693121DE954" sap:content-version="1"><End Type="ZZ1_BPSOCIAL_ACC_CDS.ZZ1_BPSOCIAL_ACCType" Multiplicity="1" Role="FromRole_assoc_EDD8257949FC359228319693121DE954"/><End Type="ZZ1_BPSOCIAL_ACC_CDS.P_Scbo_UserType" Multiplicity="0..1" Role="ToRole_assoc_EDD8257949FC359228319693121DE954"/></Association>
+			<Association Name="assoc_185C6F67FD62A298BBA8628F7035B98D" sap:content-version="1"><End Type="ZZ1_BPSOCIAL_ACC_CDS.ZZ1_BPSOCIAL_ACCType" Multiplicity="1" Role="FromRole_assoc_185C6F67FD62A298BBA8628F7035B98D"/><End Type="ZZ1_BPSOCIAL_ACC_CDS.ZZ1_MEDIAACCOUNT_BPSOCIAL_ACCType" Multiplicity="*" Role="ToRole_assoc_185C6F67FD62A298BBA8628F7035B98D"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_assoc_185C6F67FD62A298BBA8628F7035B98D"><PropertyRef Name="SAP_UUID"/></Principal>
+					<Dependent Role="ToRole_assoc_185C6F67FD62A298BBA8628F7035B98D"><PropertyRef Name="SAP_PARENT_UUID"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityContainer Name="ZZ1_BPSOCIAL_ACC_CDS_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="P_Scbo_User" EntityType="ZZ1_BPSOCIAL_ACC_CDS.P_Scbo_UserType" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:content-version="1"/><EntitySet Name="ZZ1_BPSOCIAL_ACC" EntityType="ZZ1_BPSOCIAL_ACC_CDS.ZZ1_BPSOCIAL_ACCType" sap:searchable="true" sap:content-version="1"/><EntitySet Name="ZZ1_MEDIAACCOUNT_BPSOCIAL_ACC" EntityType="ZZ1_BPSOCIAL_ACC_CDS.ZZ1_MEDIAACCOUNT_BPSOCIAL_ACCType" sap:searchable="true"
+				sap:content-version="1"/>
+				<AssociationSet Name="assoc_B033D1C74A0DB28B87D98405F6FB4CB1" Association="ZZ1_BPSOCIAL_ACC_CDS.assoc_B033D1C74A0DB28B87D98405F6FB4CB1"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ZZ1_BPSOCIAL_ACC" Role="FromRole_assoc_B033D1C74A0DB28B87D98405F6FB4CB1"/><End EntitySet="P_Scbo_User" Role="ToRole_assoc_B033D1C74A0DB28B87D98405F6FB4CB1"/></AssociationSet>
+				<AssociationSet Name="assoc_185C6F67FD62A298BBA8628F7035B98D" Association="ZZ1_BPSOCIAL_ACC_CDS.assoc_185C6F67FD62A298BBA8628F7035B98D"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ZZ1_BPSOCIAL_ACC" Role="FromRole_assoc_185C6F67FD62A298BBA8628F7035B98D"/><End EntitySet="ZZ1_MEDIAACCOUNT_BPSOCIAL_ACC" Role="ToRole_assoc_185C6F67FD62A298BBA8628F7035B98D"/></AssociationSet>
+				<AssociationSet Name="assoc_EDD8257949FC359228319693121DE954" Association="ZZ1_BPSOCIAL_ACC_CDS.assoc_EDD8257949FC359228319693121DE954"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ZZ1_BPSOCIAL_ACC" Role="FromRole_assoc_EDD8257949FC359228319693121DE954"/><End EntitySet="P_Scbo_User" Role="ToRole_assoc_EDD8257949FC359228319693121DE954"/></AssociationSet>
+			</EntityContainer>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZZ1_BPSOCIAL_ACC_CDS.ZZ1_BPSOCIAL_ACCType/PartnerID"><Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/></Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZZ1_BPSOCIAL_ACC_CDS.ZZ1_BPSOCIAL_ACCType">
+				<Annotation Term="Common.SemanticKey">
+					<Collection>
+						<PropertyPath>PartnerID</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZZ1_BPSOCIAL_ACC_CDS/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZZ1_BPSOCIAL_ACC_CDS/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
