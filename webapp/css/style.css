@@ -13,7 +13,8 @@
  p {
      font-size: 30px;
  }
- li {
+ 
+ .li {
      color: red;
      font: Arial;
      text-decoration: underline;
