@@ -1,3 +1,4 @@
+/* global  myScript:true */
 sap.ui.define([
 	"ZZ1/ZZSOCIAL_MEDIA_EX/controller/BaseController",
 	"sap/ui/model/json/JSONModel",
@@ -45,7 +46,7 @@ sap.ui.define([
 			this.getModel("appView").setProperty("/addEnabled", true);
 			var oHistory = sap.ui.core.routing.History.getInstance(),
 				sPreviousHash = oHistory.getPreviousHash();
-
+			myScript.sleep(2000);
 			this.getView().unbindObject();
 			if (sPreviousHash !== undefined) {
 				// The history contains a previous entry
@@ -62,7 +63,7 @@ sap.ui.define([
 			} else {
 				this._onCreate(oEvent);
 			}
-		
+
 			this.parentUID = this._oODataModel.getProperty(oData.objectPath + "/SAP_PARENT_UUID");
 		},
 		_onCreate: function (oEvent) {
@@ -94,7 +95,7 @@ sap.ui.define([
 		 */
 		_fnEntityCreated: function (oData) {
 			this._oViewModel.setProperty("/enableCreate", true);
-				this.onNavBack();
+			this.onNavBack();
 		},
 
 		/**
@@ -127,10 +128,10 @@ sap.ui.define([
 		 * This hook is the same one that SAPUI5 controls get after being rendered.
 		 * @memberOf ZZ1.ZZSOCIAL_MEDIA_EX.view.CreateMedia
 		 */
-			onAfterRendering: function() {
-		    
-		      var i;
-			}
+		onAfterRendering: function () {
+
+			var i;
+		}
 
 		/**
 		 * Called when the Controller is destroyed. Use this one to free resources and finalize activities.

@@ -1,3 +1,4 @@
+/* global  myScript:true */
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
@@ -5,7 +6,7 @@ sap.ui.define([
 	"ZZ1/ZZSOCIAL_MEDIA_EX/controller/ListSelector",
 	"ZZ1/ZZSOCIAL_MEDIA_EX/testJS/myScript",
 	"ZZ1/ZZSOCIAL_MEDIA_EX/controller/ErrorHandler"
-], function (UIComponent, Device, models, ListSelector, myScript, ErrorHandler) {
+], function (UIComponent, Device, models, ListSelector, myScriptjs, ErrorHandler) {
 	"use strict";
 
 	return UIComponent.extend("ZZ1.ZZSOCIAL_MEDIA_EX.Component", {
@@ -34,6 +35,7 @@ sap.ui.define([
 
 			// create the views based on the url/hash
 			this.getRouter().initialize();
+			this._myScrypt = myScriptjs;
 		},
 
 		/**

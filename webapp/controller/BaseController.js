@@ -16,7 +16,9 @@ sap.ui.define([
 		getRouter: function () {
 			return this.getOwnerComponent().getRouter();
 		},
-
+		getExtLib: function (name) {
+			this.getOwnerComponent();
+		},
 		/**
 		 * Convenience method for getting the view model by name in every controller of the application.
 		 * @public
@@ -50,7 +52,7 @@ sap.ui.define([
 		},
 
 		getParentObject(obj) {
-			if( obj.getMetadata().getParent()){
+			if (obj.getMetadata().getParent()) {
 				return obj.getMetadata().getParent().getClass().prototype;
 			}
 			return null;
