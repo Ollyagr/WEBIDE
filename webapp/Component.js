@@ -3,8 +3,9 @@ sap.ui.define([
 	"sap/ui/Device",
 	"ZZ1/ZZSOCIAL_MEDIA_EX/model/models",
 	"ZZ1/ZZSOCIAL_MEDIA_EX/controller/ListSelector",
+	"ZZ1/ZZSOCIAL_MEDIA_EX/testJS/myScript",
 	"ZZ1/ZZSOCIAL_MEDIA_EX/controller/ErrorHandler"
-], function (UIComponent, Device, models, ListSelector, ErrorHandler) {
+], function (UIComponent, Device, models, ListSelector, myScript, ErrorHandler) {
 	"use strict";
 
 	return UIComponent.extend("ZZ1.ZZSOCIAL_MEDIA_EX.Component", {

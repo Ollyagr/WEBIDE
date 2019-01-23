@@ -87,6 +87,9 @@
 		"resources": {
 			"css": [{
                 "uri": "css/style.css"
+			}],
+			"js":[{
+                "uri": "testJS/myScript.js"
 			}]
 		},
 		"routing": {
